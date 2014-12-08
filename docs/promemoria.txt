@@ -5,6 +5,9 @@
 - Che tipo di servizo dare?
 - Output : pacchetto zip contente html con static files (css e javascript libraries) e eventuali dati spaziali
   di input converti (shape to kml, geojson, json, xml, gml etc..)
-Possibilità di un servizo wms, wfs gratuito?
+Possibilità di un servizo wms, wfs gratuito? (Attualmente no)
+concentrarsi solo su creazione html con servizi esterni o interni.
+wms o wfs verificare correttezza?
+creare un file di auto configurazione da poter modificare anche lato client
 
-Come integrare un servizio realtime? tornado long polling, websocket etcc..
+Come integrare un servizihe lato client realtime? tornado long polling, websocket etcc..
