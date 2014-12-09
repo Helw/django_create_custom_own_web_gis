@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+APPS_DIR = os.path.join(BASE_DIR,'apps')
+DIR_TEMPLATE = os.path.join(os.path.dirname(BASE_DIR),'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -26,6 +27,18 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEMPLATE_DIRS = (
+
+
+    DIR_TEMPLATE,
+
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = {
+
+    'sekizai.context_processors.sekizai',
+
+}
 
 # Application definition
 
@@ -36,6 +49,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sekizai',
+    #'root',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,7 +65,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'django_create_custom_webgis.urls'
 
-WSGI_APPLICATION = 'django_create_custom_webgis.wsgi.application'
+WSGI_APPLICATION = 'wsgi_configure_files.apache_wsgi.application'
 
 
 # Database
@@ -80,4 +95,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+######3 STATIC FILES MANAGEMENT ###########
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static')
+
+STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR),'static-common')]
