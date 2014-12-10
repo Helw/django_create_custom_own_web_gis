@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+}
+
+.navigation {
+
+        text-align: center;
+
+}
+.navigation li {
+    display: inline;
+    padding-left: 0;
+    padding-right: 50px;
+    font-weight:bold;
+    font-size:30px;
+
+}
+
+
+.navigation li.active a{
+
+    color: orange;
+}
+
+#left_column > div {
+
+        display: none;
+
+}
+
+#left_column div.active {
+
+        display: block;
+
+}
+
+
+#mynav {
+
+         height: 5%;
+
+}
+
+#content-row {
+
+        height: 94%;
+
+}
+
+#content-row > div {
+
+        height:100%;
+
+}
+
+.fill {
+    min-height: 100%;
+    height: 100%;
+}
+
+
+
+/* ----- MAP STYLE ------------------*/
+
+
+#custom_map {
+
+        border-style: solid;
+        border-color: #000000;
+
+
+}
+
+
+

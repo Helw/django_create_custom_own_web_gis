@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% render_block "css" %}
-    {% include "./_include/general/header.html" %}
+    {% include "./_include/webgis/header.html" %}
+
     {% block custom_header %}
 
         <!--Insert custom header here-->
@@ -23,47 +24,106 @@
 
     {% endblock %}
      <div class="container-fluid fill">
-        <div id="top-row" class="row">
-            <div id="top-class-element" class="col-sm-12">
+        <div id="mynav" class="row">
 
-                BuildYourWebGis
-                <a>Sign In</a>
-                <div class="container">
-                    <div  class="row">
-                            <div id="myslideshow" class="col-sm-12">
+            <ul class="navigation">
+                  <li class="active"><a href="#basemap">BaseMap</a></li>
+                  <li><a href="#wms">WMS Service</a></li>
+                  <li><a href="#vector">Vector</a></li>
+                  <li><a href="#yourvector">Your Data</a></li>
+                  <li><a href="#download">Download</a></li>
+            </ul>
 
-                                {% include "./_include/general/elastic_slideshow.html" %}
-
-                            </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <div id="bottom-row" class="row">
-            <div id="examples" class="col-sm-4"><p>Example</p></div>
-            <div id="tutorial" class="col-sm-4"><p>Tutorial</p></div>
-            <div id="readytobuild" class="col-sm-4"><p>I'm ready</p></div>
+        <div id="content-row" class="row">
+            <div id="div_current_layer_choose" class="col-sm-2">
+
+                <div id="left_column">
+
+                    {% include "./_include/webgis/navbar_content.html" %}
+
+                </div>
+
+
+            </div>
+            <div id="custom_map" class="col-sm-8">
+
+
+
+                    Create Your Custom Map
+                    {% block customize_map %}
+
+
+
+                    {% endblock %}
+
+            </div>
+            <div id="div_ichooseit" class="col-sm-2">
+                <div id="right_column">
+
+                    <h3>Added Layers / Tools</h3></br>
+
+                    <div id="added_basemap">
+
+                        Base map
+
+                    </div>
+
+                    <div id="added_wms">
+
+                            WMS
+
+                    </div>
+
+                    <div id="added_vector">
+
+                        Vector Layer
+
+                    </div>
+                    <div id="added_your_layer">
+
+                        Your Layer
+
+                    </div>
+                    <div id="added_tools">
+
+                        Tools
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
         </div>
     </div>
 
 
-    {% block customize_map %}
-    {% endblock %}
+
 
     {% render_block "js" %}
-    {% include "./_include/general/footer.html" %}
+    {% include "./_include/webgis/footer.html" %}
+
 
     <script>
 
             $(document).ready(function () {
 
-                $('#ei-slider').eislideshow({
-					animation			: 'center',
-					autoplay			: true,
-					slideshow_interval	: 3000,
-					titlesFactor		: 0
+                $('.navigation li').on('click',function () {
+                    $('.navigation li').not(this).removeClass('active');
+                    $(this).addClass('active');
+                    var id=$(this).children('a').attr('href');
+                    $('#left_column div:not('+id+')').removeClass('active');
+                    $(id).addClass('active');
+
+
                 });
+
+
 
 
                 {% block document_ready %}  {% endblock %}
