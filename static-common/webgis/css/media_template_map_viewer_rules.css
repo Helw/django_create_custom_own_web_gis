@@ -1,0 +1,145 @@
+/* MEDIA RULES */
+
+
+@media all and (max-width: 700px){
+
+
+  #maptools {
+
+    right: auto !important;
+    left:0 !important;
+    min-width: 133px;
+    max-width : 133px;
+
+
+  }
+
+   .olControlChartControlItemInactive, olControlChartControlItemActive {
+
+        display: none !important;
+
+   }
+
+  .overlay, .base {
+
+        width: 275px;
+        overflow: auto;
+
+
+  }
+
+
+  #wrap_layer_list {
+
+    width: 105px !important;
+
+  }
+
+   #wrap_query_info_results {
+
+        bottom: 202px !important;
+        min-width: 290px !important;
+        max-width: 290px !important;
+        left:0px !important;
+        border: 1px solid black;
+        left:0px !important;
+
+   }
+
+
+  #chart_div {
+    /*border: 1px solid black;
+    bottom: 354px !important;
+    max-width: 290px;
+    left:0px !important;*/
+    display: none !important;
+  }
+
+  #chart_body {
+
+    right:none !important;
+    left:0px !important;
+    width: 133px;
+    bottom:50px;
+    max-width: 290px !important;
+
+
+
+  }
+
+   #gazSearch{
+
+        /*left: 0px !important;*/
+        display:none !important;
+
+   }
+
+
+  #leftcoltools {
+
+    top:auto !important;
+    bottom:0;
+    overflow: auto !important;
+    height:200px !important;
+    border: 1px solid black;
+    border-bottom: none;
+    padding-right:15px;
+
+  }
+
+  #leftcoltools div {
+
+    padding-left: 5px !important;
+
+  }
+
+
+  #legend_icon {
+
+
+    display:none !important;
+
+  }
+
+  #map-inputs {
+
+    overflow: auto !important;
+
+  }
+
+  #open_left_column {
+
+    top:93% !important;
+
+  }
+
+  #wrap-outer-legend, #outer-legend {
+
+    display:none !important;
+
+  }
+
+  div.olControlZoom {
+
+    display:none !important;
+
+  }
+
+  #breadcrumb-map li:not(:first-child):not(:last-child){
+
+    display:none !important;
+
+  }
+
+  #layer_list {
+
+    min-width:0px !important;
+
+  }
+
+  .layers {
+
+    width: 90px !important;
+
+  }
+}

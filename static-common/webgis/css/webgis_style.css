@@ -37,13 +37,14 @@ html, body {
 
 #mynav {
 
-         height: 5%;
+         height: 4%;
+         min-height: 50px;
 
 }
 
 #content-row {
 
-        height: 94%;
+        height: 90%;
 
 }
 
@@ -58,6 +59,11 @@ html, body {
     height: 100%;
 }
 
+#basemap > div, #added_basemap > div {
+
+    cursor: pointer;
+
+}
 
 
 /* ----- MAP STYLE ------------------*/

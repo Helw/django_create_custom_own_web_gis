@@ -1,0 +1,770 @@
+html, body {
+
+
+    position: relative;
+    height: 100%
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+body {
+
+
+    background-color: #ffffff !important;
+
+}
+
+
+#layer_legend_full img {
+
+    vertical-align: top;
+
+
+}
+
+#logo_ce_map_viewer {
+
+    position: fixed;
+    right: 5px;
+
+}
+
+.container{
+
+
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+
+
+}
+
+#topsection-map {
+
+    background-color: #ffffff;
+
+}
+
+
+#maincontainer {
+
+
+    height: 98%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+
+
+}
+
+/* MAP STYLE*/
+
+#map {
+
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    border: 1px solid #88A649;
+    overflow: hidden;
+    left:0px;
+    position:relative;
+    height: 94.9%;
+    width: 100%;
+
+}
+
+
+/*  ------------------- */
+
+
+
+    /* START Layers dropdown */
+
+
+
+#closeleftcoltools {
+
+
+    cursor:pointer;
+    right: 5px;
+    margin-top: 5px;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+
+}
+
+.backgroundopacity {
+
+    background:rgba(255,255,255,.5);
+    position:absolute;
+
+}
+
+.last_layer_added {
+
+    margin-bottom: 10px;
+
+}
+
+.layers {
+
+    width: 200px;
+    height:50px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 2px solid gray;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+    font-weight:bold;
+
+}
+
+.layers_visible {
+
+    border: 2px solid yellow;
+
+
+}
+
+
+#layer_list div[id^="layer_"]:last-child {
+
+
+    margin-bottom:15px;
+
+}
+
+        /* END Layers dropdown */
+
+
+#search {
+
+    cursor: pointer;
+}
+
+#pSearch {
+
+
+    height: 35px;
+    width: 50px;
+
+
+}
+
+
+#open_left_column{
+
+    cursor:pointer;
+    position:absolute;
+    background:white;
+    z-index:1000;
+    top: 0px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
+#hide_leftcoltools_col {
+
+    height: 50px;
+    width:260px;
+    position:absolute;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    width: 260px;
+    z-index: 10;
+    display:none;
+    background: #ffffff;
+
+
+}
+
+
+
+
+#leftcoltools{
+
+    z-index:1000;
+    position:absolute;
+    top:0px;
+    width:260px;
+    height:100%;
+    background:#ffffff;
+    display:none;
+    /*-moz-border-radius: 0px 2px 2px 0px;
+    -webkit-border-top-right-radius: 2px 2px;
+    -webkit-border-bottom-right-radius: 2px 2px;*/
+    border-radius: 0px 0px 2px 0px;
+    /*overflow: hidden;*/
+    padding-left: 15px;
+    cursor:default;
+
+
+}
+
+a.myaccordion {
+    color: #000000 !important;
+
+}
+
+
+#layer_legend_full {
+
+     margin-top: 6px;
+     right: 0px;
+     position:absolute;
+     padding: 5px;
+     background: white;
+     border: 1px solid black;
+     z-index: 999;
+     border-radius: 2px;
+
+
+}
+
+
+.insidemap {
+
+   /*--insert here-*/
+
+}
+
+#maptools{
+
+
+     margin-top: 6px;
+     right: 160px;
+     position:fixed;
+     padding: 5px;
+     background: white;
+     border: 1px solid black;
+     z-index:1000;
+     border-radius: 2px 2px 2px 2px;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* -----FIND LOCATION -----  */
+
+
+.location-results-body{
+
+    margin:5px;
+
+}
+
+
+
+#close-location-results {
+    display:none;
+    position: absolute;
+    right: 55px;
+    cursor: pointer;
+    top: 5px;
+}
+
+
+#location-results {
+
+    background-color: white;
+    left: 350px;
+    position: absolute;
+    top: 45px;
+    width: 306px;
+    z-index: 1000;
+    display:none;
+}
+
+
+#pSearch {
+
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #6db861;
+    background-image: url('/static/template_map_viewer/images/search_location.png');
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    width: 40px;
+    z-index: 1000;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+
+}
+
+#pSearch:hover {
+
+    background-color: #88a649;
+
+}
+
+
+#gazSearch {
+
+    display: none;
+    background-color: #ffffff;
+    clear: both;
+    height: 35px;
+    left: 350px;
+    position: absolute;
+    width: 300px;
+    z-index: 50;
+    border-style: solid;
+    border-color: #ffffff;
+    box-shadow: 2px 2px 2px #888888;
+    -moz-box-shadow: 2px 2px 2px #888888;
+	-webkit-box-shadow: 2px 2px 2px #888888;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color=' #888888')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color=' #888888');
+}
+
+#gazSearch #googlemaps_search {
+    position: absolute;
+    top: 10%;
+    left: 2px;
+    width: 250px;
+    height: 20px;
+    font-size: 15px;
+    border: none;
+    text-align: left;
+}
+
+#gazSearch p {
+    position: absolute;
+    color: #135cae;
+    cursor: pointer;
+    font-size: 0.8em;
+    top: 6px;
+    right: 4px;
+    text-decoration: underline;
+}
+
+
+/* ----------------------------------------------- */
+
+
+#zoom_in_out a {
+    background: none repeat scroll 0 0 rgba(0, 60, 136, 0.5);
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Lucida Grande',Verdana,Geneva,Lucida,Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 19px;
+    margin: 1px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 22px;
+}
+
+
+/* OPENLAYERS CONTROLS */
+
+div.olControlZoom {
+
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+
+div.olControlZoom {
+
+    top: 50px !important;
+
+}
+
+
+a.olControlZoomIn {
+
+    background-color: rgba(109, 184, 97, 1) !important;
+    height:30px !important;
+    width: 30px !important;
+    text-align: center !important;
+
+}
+
+a.olControlZoomOut {
+
+    background-color: rgba(247, 150, 0, 1) !important;
+    height:30px !important;
+    width: 30px !important;
+    text-align: center !important;
+
+}
+
+
+.olControlNavigationItemActive {
+
+           	width:  25px;
+          	height: 25px;
+            background: url("/static/template_map_viewer/images/tools_sprite.png") no-repeat center;
+            background-position: 1px -24px;
+            float: left;
+            cursor: pointer;
+            padding-right: 1px;
+        }
+
+
+.olControlNavigationItemInactive {
+            width:  25px;
+            height: 25px;
+            background: url("/static/template_map_viewer/images/tools_sprite.png") no-repeat center;
+            background-position: 1px 0px;
+            float: left;
+            cursor: pointer;
+            padding-right: 1px;
+
+        }
+
+
+
+.olControlZoomToExtentItemInactive{
+            width:  26px;
+            height: 25px;
+            background:  url("/static/template_map_viewer/images/home_color.png") no-repeat center;
+            float: left;
+            cursor: pointer;
+            padding-right: 1px;
+        }
+
+
+
+.olControlZoomBoxItemInactive {
+          width:  25px;
+          height: 25px;
+          float: left;
+          cursor: pointer;
+	      background:  url("/static/template_map_viewer/images/zoomin_color.png") no-repeat center;
+	      padding-right: 1px;
+}
+
+
+.olControlZoomBoxItemActive {
+          width:  25px;
+          height: 25px;
+          float: left;
+          cursor: pointer;
+          background: url("/static/template_map_viewer/images/zoomin_color_activate.png") no-repeat center;
+          padding-right: 1px;
+}
+
+.olControlNavigationHistoryPreviousItemActive {
+
+
+          width:  25px;
+          height: 25px;
+          float: left;
+          cursor: pointer;
+          background: url("/static/template_map_viewer/images/back_zoom_activate.png") no-repeat center !important;
+          padding-right: 1px;
+
+
+}
+
+
+.olControlNavigationHistoryPreviousItemInactive {
+        float: left;
+        cursor: pointer;
+        width:  25px;
+        height: 25px;
+        background: url("/static/template_map_viewer/images/back_zoom.png") no-repeat center !important;
+        padding-right: 1px;
+}
+
+
+.olControlNavigationHistory {
+    float: left;
+    cursor: pointer;
+    width:  25px !important;
+    height: 25px !important;
+}
+
+
+
+
+/* END OPENLAYERS CONTROLS */
+
+.searchpanelopen{
+
+    left:300px;
+
+}
+
+.zoom_in_out_open_leftcolumn {
+
+    left: 300px !important;
+    position: absolute;
+    top: 25px !important;
+
+
+}
+
+
+/* LAYER DIV */
+
+#layers_list_arrow.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid rgba(255,255,255,1);
+	position:absolute;
+	z-index:1000;
+	right:6px;
+	top:45px;
+	display:none;
+}
+
+#wrap_layer_list {
+
+    background: none repeat scroll 0 0 rgba(255,255,255,1);
+    height: 218px;
+    width: 210px;
+    overflow: hidden;
+    padding: 5px;
+     /*-moz-border-radius:10px 2px 2px 10px;
+    -webkit-border-top-right-radius: 2px 2px;
+    -webkit-border-top-left-radius: 10px 10px;
+    -webkit-border-bottom-left-radius: 10px 10px;*/
+    border-radius: 10px 2px 2px 10px;
+    position:absolute;
+    z-index:1000;
+    right:0px;
+    top:60px;
+    display:none;
+
+
+}
+
+#layer_list {
+
+    width: 215px;
+    padding-left:8px;
+    padding-right: 8px;
+    height: 250px;
+    overflow:scroll;
+
+
+}
+
+/* LEGEND */
+
+#legend_icon {
+
+    cursor:pointer;
+    padding-right:2px;
+    float:left;
+    display:none;
+
+}
+
+#outer-legend {
+
+    width: 225px;
+    overflow:auto;
+    padding-right:8px;
+    padding-left: 8px;
+    height: 215px;
+
+}
+
+#wrap-outer-legend {
+    z-index: 1000;
+    max-height: 200px;
+    border-bottom: 1px dotted #CCCCCC;
+    position: absolute;
+    right: 0 ;
+    width: 219px;
+    top: 50px;
+    border-top: 1px solid #CCCCCC;
+    background-color: rgba(255, 255, 255, 1);
+    overflow: hidden;
+    border-radius: 3px;
+    display:none;
+}
+
+.outer-legend-down {
+
+
+    top: 290px !important;
+
+}
+
+#outer-legend h3 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #135CAE;
+    font-size: 1.1em;
+    font-weight: bold;
+    left: 0;
+    position: relative;
+    text-transform: capitalize;
+}
+
+#cLegend {
+    position: relative;
+    left: 0px;
+    /*height: 220px;*/
+    width: 100%;
+    top: 5px;
+    padding: 0px;
+    /*overflow-y: scroll;*/
+}
+
+.circleLegend {
+    border-radius: 10%/10%;
+    width: 5%;
+    padding: 10px;
+}
+
+#cLegend div {
+    display: none;
+    position: relative;
+    left: 0px;
+    margin-top: 5px;
+}
+
+#cLegend a {
+    top: -15px;
+}
+
+
+
+
+#cLegend label {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#cLegend table {
+    text-align: left;
+    font-size: 10px;
+    padding: 0px;
+    /*margin-top:5px;*/
+    border-collapse: collapse;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#cLegend td {
+    margin-left: 2px;
+    padding-left: 5px;
+    padding-top: 2px;
+    font-size: 11px;
+
+}
+
+/* BREADCRUMS MAP */
+
+
+
+
+#breadcrumb-map {
+
+
+    overflow: hidden;
+    margin-bottom: 0px;
+    margin-left: 0px;
+
+    height: 0px;
+    padding-bottom: 25px;
+
+}
+
+.breadcrumb{
+
+    margin-bottom: 0px !important;
+
+}
+
+
+
+#breadcrumb-map li {
+    float: left;
+    margin: 0 12px 0 12px;
+    padding: 0 0;
+    list-style: none;
+    color: #333;
+    /*text-shadow: 0 1px 0 rgba(0,0,0,.5);*/
+    position: relative;
+    line-height: 30px;
+}
+
+#breadcrumb-map a {
+
+    float: left;
+    text-decoration: none;
+    color: #333;
+    /*text-shadow: 0 1px 0 rgba(0,0,0,.5);*/
+    position: relative;
+    height: 25px;
+}
+
+#breadcrumb-map a:hover {
+    font-weight: bold;
+}
+
+#breadcrumb-map a::before,
+#breadcrumb-map a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1em;
+}
+
+#breadcrumb-map a::before {
+    left: -.5em;
+}
+
+#breadcrumb-map a:hover::before {
+    background: none;
+}
+
+#breadcrumb-map a::after {
+    right: -.5em;
+}
+
+#breadcrumb-map a:hover::after {
+    background: none;
+}
+
+#breadcrumb-map .current,
+#breadcrumb-map .current:hover {
+    font-weight: bold;
+    background: none;
+
+}
+
+#breadcrumb-map .current::after,
+#breadcrumb-map .current::before {
+    content: normal;
+}
+
+
+
+
+
+
+.force_hide {
+
+    display: none !important;
+}
