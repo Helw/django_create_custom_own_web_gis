@@ -1,0 +1,77 @@
+{% load sekizai_tags %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% render_block "css" %}
+    {% include "./_include/general/header.html" %}
+    {% block custom_header %}
+
+        <!--Insert custom header here-->
+
+    {% endblock %}
+
+
+</head>
+<body>
+
+    {% block logo %}
+
+    {% endblock %}
+     <div class="container-fluid fill">
+        <div id="top-row" class="row">
+            <div id="top-class-element" class="col-sm-12">
+
+                BuildYourWebGis
+                <a>Sign In</a>
+                <div class="container">
+                    <div  class="row">
+                            <div id="myslideshow" class="col-sm-12">
+
+                                {% include "./_include/general/elastic_slideshow.html" %}
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottom-row" class="row">
+            <div id="examples" class="col-sm-4"><p>Example</p></div>
+            <div id="tutorial" class="col-sm-4"><p>Tutorial</p></div>
+            <div id="readytobuild" class="col-sm-4"><p>I'm ready</p></div>
+        </div>
+    </div>
+
+
+    {% block customize_map %}
+    {% endblock %}
+
+    {% render_block "js" %}
+    {% include "./_include/general/footer.html" %}
+
+    <script>
+
+            $(document).ready(function () {
+
+                $('#ei-slider').eislideshow({
+					animation			: 'center',
+					autoplay			: true,
+					slideshow_interval	: 3000,
+					titlesFactor		: 0
+                });
+
+
+                {% block document_ready %}  {% endblock %}
+
+
+            });
+
+    </script>
+
+</body>
+</html>
