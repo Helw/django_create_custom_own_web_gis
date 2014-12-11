@@ -7,6 +7,7 @@ from django.shortcuts import  redirect
 from .utils.utils import create_web_gis_zip_file
 from django.core.servers.basehttp import FileWrapper
 from django.http import HttpResponse
+
 import json
 
 class CreateOutputWebGis(View):
@@ -16,8 +17,9 @@ class CreateOutputWebGis(View):
     def post(self, request, *args, **kwargs):
 
         form = self.form_class(request.POST)
+
         if form.is_valid():
-            temp = create_web_gis_zip_file()
+            temp = create_web_gis_zip_file(form.cleaned_data)
             wrapper = FileWrapper(temp)
             response = HttpResponse(wrapper, content_type='application/zip')
             response['Content-Disposition'] = 'attachment; filename=customwebgis'+temp.name+'.zip'
