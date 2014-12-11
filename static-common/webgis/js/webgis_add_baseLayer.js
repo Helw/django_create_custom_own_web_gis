@@ -1,10 +1,9 @@
 function addBaseLayer(o) {
 
-        function basemap_function(elem) {
+        function add_baselayer_to_basemap_div(elem) {
 
                 var choose_layer = $(elem).attr('id');
-                o.map.addLayer(o.baseLayers[choose_layer]);
-                o.map.zoomToMaxExtent();
+                o.addBaseLayer(choose_layer);
                 $(elem).off('click');
                 $(elem).detach().appendTo('#added_basemap')
 
@@ -13,8 +12,7 @@ function addBaseLayer(o) {
 
         $('#basemap > div').on('click',function () {
 
-                $('#custom_map').text('');
-                basemap_function(this);
+                        add_baselayer_to_basemap_div(this);
 
 
         });
@@ -22,15 +20,14 @@ function addBaseLayer(o) {
 
         $('#basemap').delegate('div','click', function (){
 
-
-                basemap_function(this);
+                add_baselayer_to_basemap_div(this);
 
         })
 
         $('#added_basemap').delegate('div','click', function (){
 
                 var choose_layer = $(this).attr('id');
-                o.map.removeLayer(o.baseLayers[choose_layer]);
+                o.removeBaseLayer(choose_layer);
                 $(this).off('click');
                 $(this).detach().appendTo('#basemap')
 
@@ -39,3 +36,4 @@ function addBaseLayer(o) {
 
 
 }
+

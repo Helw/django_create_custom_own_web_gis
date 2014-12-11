@@ -51,7 +51,7 @@
 
 
 
-                    Create Your Custom Map
+
                     {% block customize_map %}
 
 
@@ -93,7 +93,6 @@
                     </div>
 
 
-
                 </div>
 
             </div>
@@ -113,6 +112,9 @@
 
             $(document).ready(function () {
 
+
+
+
                 $('.navigation li').on('click',function () {
                     $('.navigation li').not(this).removeClass('active');
                     $(this).addClass('active');
@@ -121,6 +123,12 @@
                     $(id).addClass('active');
 
 
+                });
+
+                $('#download').on('click', function() {
+
+
+                        createCustomWebGis('{{ csrf_token }}')
                 });
 
                 _CustomWebGis =  new WebGisMap();

@@ -116,7 +116,7 @@ function WebGisMap(map_type,new_types) {
                       Bounds:new OpenLayers.Bounds(-3997819.4816408, 3978863.2533342, 7429821.9935154, 11561416.458168)
                      },
             global : {minZoomLevel:0,
-                      Bounds:new OpenLayers.Bounds(-17787303.775917, -5284897.250956, 19783024.361583, 11426071.618536)
+                      Bounds:new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34)
                      },
             europe:  {minZoomLevel:4,
                      Bounds:new OpenLayers.Bounds(-7989667.0196601, 3191256.7073397, 10795497.04909, 11546741.142086)
@@ -216,7 +216,9 @@ function WebGisMap(map_type,new_types) {
 
             mouse_position : new OpenLayers.Control.MousePosition({numDigits:4}),
 
-            zoom : pzb = new OpenLayers.Control.Zoom()
+            zoom :  new OpenLayers.Control.Zoom(),
+
+            panzoom : new OpenLayers.Control.PanZoomBar()
 
         };
 
@@ -485,15 +487,19 @@ function WebGisMap(map_type,new_types) {
 
                     minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 22,
                     numZoomLevels: 22
+
                 }
             ),
 
             openstreetmap: new OpenLayers.Layer.OSM(
                     "OpenStreetMap"
+
             )
 
 
         };
+
+
 
 
         this.proj4326 = new OpenLayers.Projection("EPSG:4326");
@@ -505,11 +511,87 @@ function WebGisMap(map_type,new_types) {
             displayProjection: this.proj4326,
             maxExtent: map_settings.Bounds,
             units: 'm',
-            layers: [],
             controls: [],
             numZoomLevels: 30
 
         });
+
+        this.currentBaseLayer = false;
+
+        this.addBaseLayer = function (base_layer) {
+
+
+            var layer = this.baseLayers[base_layer];
+
+            this.map.addLayer(layer);
+
+            if ( !(this.currentBaseLayer)) {
+
+
+                this.currentBaseLayer = layer;
+                this.map.addControls([this.Controls.navigation]);
+                this.map.zoomToMaxExtent();
+
+
+            }
+
+
+
+            else {
+
+                this.currentBaseLayer.setVisibility(false);
+                layer.setVisibility(true);
+                this.currentBaseLayer = layer;
+
+            }
+
+
+
+        };
+
+
+        this.removeBaseLayer = function (base_layer) {
+
+            this.map.removeLayer(this.baseLayers[base_layer])
+
+
+            var l = this.map.controls.length;
+
+            if (this.map.layers.length == 0) {
+
+                    this.removeAllMapControls();
+                    this.currentBaseLayer = false;
+
+            }
+
+            else {
+
+                this.map.layers[this.map.layers.length -1].setVisibility(true);
+
+            }
+
+        };
+
+        this.removeAllMapControls = function () {
+
+
+
+
+                while (this.map.controls.length > 0) {
+
+
+                        this.map.removeControl(this.map.controls[0]);
+
+
+                }
+
+
+
+
+
+        };
+
+
 
 
         this.getLayerByName = function (layer_name) {

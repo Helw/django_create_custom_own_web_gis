@@ -50,7 +50,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sekizai',
-    #'root',
+    'apps.create_webgis',
+
 )
 
 MIDDLEWARE_CLASSES = (
