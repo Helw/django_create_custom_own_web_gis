@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import FormView, View
 from .forms import BaseLayerForm
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import  redirect
 from .utils.utils import create_web_gis_zip_file
 from django.core.servers.basehttp import FileWrapper
 from django.http import HttpResponse
@@ -24,13 +24,13 @@ class CreateOutputWebGis(View):
             response['Content-Length'] = temp.tell()
             temp.seek(0)
             temp.close()
-            return redirect('create')
+            return response
 
         else:
             response_data = {}
             response_data['url'] = 'failed'
             return HttpResponse(json.dumps(response_data), content_type="application/json")
-            return render_to_response('index_template/index.html', {'baselayer':'Pippo'})
+
 
 
 

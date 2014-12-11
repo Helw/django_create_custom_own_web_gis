@@ -218,7 +218,9 @@ function WebGisMap(map_type,new_types) {
 
             zoom :  new OpenLayers.Control.Zoom(),
 
-            panzoom : new OpenLayers.Control.PanZoomBar()
+            panzoom : new OpenLayers.Control.PanZoomBar(),
+            layerswitcher : new OpenLayers.Control.LayerSwitcher()
+
 
         };
 
@@ -529,7 +531,7 @@ function WebGisMap(map_type,new_types) {
 
 
                 this.currentBaseLayer = layer;
-                this.map.addControls([this.Controls.navigation]);
+                this.map.addControl(this.Controls.navigation);
                 this.map.zoomToMaxExtent();
 
 
@@ -542,6 +544,9 @@ function WebGisMap(map_type,new_types) {
                 this.currentBaseLayer.setVisibility(false);
                 layer.setVisibility(true);
                 this.currentBaseLayer = layer;
+                if (this.map.layers.length == 2) {
+                    this.map.addControl(this.Controls.layerswitcher);
+                }
 
             }
 
@@ -556,11 +561,18 @@ function WebGisMap(map_type,new_types) {
 
 
             var l = this.map.controls.length;
-
-            if (this.map.layers.length == 0) {
+            var map_layers_length = this.map.layers.length;
+            if (map_layers_length == 0) {
 
                     this.removeAllMapControls();
                     this.currentBaseLayer = false;
+
+            }
+
+            else if (map_layers_length == 1) {
+
+
+                    this.map.removeControl(this.Controls.layerswitcher);
 
             }
 
