@@ -1,0 +1,3 @@
+download_zip (redirect o altre cose)
+
+creare un API per poter effettuare info request cross domain (JSONP)

@@ -1,22 +1,23 @@
 __author__ = 'v-user'
 from django import forms
 
-BASELAYERS= ['google_sat','openstreetmap']
+BASELAYERS= set(('google_sat','openstreetmap'))
 
 class BaseLayerForm(forms.Form):
 
-    name = forms.CharField(max_length=30)
+    baselayers = forms.CharField(max_length=255)
 
     # def clean(self):
     #
     #     cleaned_data = super().clean()
     #
 
-    def clean_name(self):
+    def clean_baselayers(self):
 
-        name = self.cleaned_data['name']
-        if not name in BASELAYERS:
+        baselayers = set(self.cleaned_data['baselayers'].split(';'))
+
+
+        if len(baselayers.difference(BASELAYERS)):
             raise forms.ValidationError('Wrong Base Layer')
 
-
-        return name
+        return baselayers
