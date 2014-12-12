@@ -6,8 +6,6 @@ import shutil
 import os
 from django.template.loader import render_to_string
 
-
-
 OUTPUT_PACKAGE_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)),'templates','ouput_package');
 
 
