@@ -14,7 +14,7 @@ function createCustomWebGis(csrfmiddlewaretoken) {
     $.post( "/create/", { baselayers: baselayers.join(';'), csrfmiddlewaretoken: csrfmiddlewaretoken }, function(data) {
 
             alert(data);
-            pippo = data;
+
 
         })
 
