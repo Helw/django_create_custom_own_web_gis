@@ -24,8 +24,8 @@ class CreateOutputWebGis(View):
             response = HttpResponse(wrapper, content_type='application/zip')
             response['Content-Disposition'] = 'attachment; filename=customwebgis'+temp.name+'.zip'
             response['Content-Length'] = temp.tell()
-            temp.seek(0)
-            temp.close()
+            #temp.seek(0)
+            #temp.close()
             return response
 
         else:
@@ -35,5 +35,7 @@ class CreateOutputWebGis(View):
 
 
 
+def temporary_file_download(self,temporary_file):
 
+    return HttpResponse('ciao')
 

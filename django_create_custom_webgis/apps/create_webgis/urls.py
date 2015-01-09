@@ -2,14 +2,12 @@ __author__ = 'v-user'
 
 from django.conf.urls import patterns, url
 
-from django.views.generic import TemplateView
-from .views import CreateOutputWebGis#, CreateFormValidatorWebGis
+from .views import CreateOutputWebGis, temporary_file_download
 
 urlpatterns = patterns('',
 
     url(r'^$', CreateOutputWebGis.as_view(), name='create'),
-    #url(r'^$', CreateOutputWebGis.as_view(), name='create'),
-
+    url(r'^tempfile/(?P<temporary_file>\w+)/$',temporary_file_download, name='temporary_file'),
 
 )
 

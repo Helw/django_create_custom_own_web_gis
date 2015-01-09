@@ -2,7 +2,7 @@ __author__ = 'v-user'
 
 import zipfile
 import tempfile
-import shutil
+# import shutil
 import os
 from django.template.loader import render_to_string
 
@@ -27,5 +27,5 @@ def create_web_gis_zip_file(cleaned_data={'baselayers':['openstreetmap']}):
             for file in files:
                 fn = os.path.join(base, file)
                 local_file_zip.write(fn, fn[rootlen:])
-    shutil.copy(temp_name, '/home/v-user/testwebgis.zip')
+    # shutil.copy(temp_name, '/home/v-user/testwebgis.zip')
     return temp_file
