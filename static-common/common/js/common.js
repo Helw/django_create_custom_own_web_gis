@@ -11,14 +11,20 @@ function createCustomWebGis(csrfmiddlewaretoken) {
     })
 
 
-    $.post( "/create/", { baselayers: baselayers.join(';'), csrfmiddlewaretoken: csrfmiddlewaretoken }, function(data) {
+     $.download("/create/", ['baselayers','csrfmiddlewaretoken'],[baselayers.join(';'),csrfmiddlewaretoken])
 
-            alert(data);
-
-        })
-
-
-
+//    $.post( "/create/", { baselayers: baselayers.join(';'), csrfmiddlewaretoken: csrfmiddlewaretoken }, function(data) {
+//
+////            blob=new Blob([data]);
+////            var link=document.createElement('a');
+////            link.href=window.URL.createObjectURL(blob);
+////            link.download="Dossier_"+new Date()+".zip";
+////            link.click();
+//
+//                pippo = data;
+//
+//
+//        })
 
 
 

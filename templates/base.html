@@ -7,6 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     {% render_block "css" %}
     {% include "./_include/general/header.html" %}
@@ -27,15 +31,28 @@
         <div id="top-row" class="row">
             <div id="top-class-element" class="col-sm-12">
 
-                BuildYourWebGis {{ session_id }}
-                <a>Sign In</a>
-                <div class="container">
-                    <div  class="row">
-                            <div id="myslideshow" class="col-sm-12">
+                <!--BuildYourWebGis {{ session_id }}-->
 
-                                {% include "./_include/general/elastic_slideshow.html" %}
+                WELCOME TO BUILDYOURWEBGIS
 
-                            </div>
+                <a style="font-size:10px; position:absolute; right:15px; top:5px;">Sign In</a>
+                <div id="center_body" class="container-fluid fill">
+                    <div  class="row" style="margin-left:2%;margin-right:2%; margin-bottom:5px;">
+
+
+                        <div id="home_base_layesr" class="col-sm-3 col-sm-offset-0">Base Layers</div>
+                        <div id="home_remote_services" class="col-sm-3 col-sm-offset-1">Services</div>
+                        <div id="home_vector_layers" class="col-sm-3 col-sm-offset-1">Vector Layers</div>
+
+                    </div>
+
+                    <div class="row"  style="margin-left:2%;margin-right:2%;">
+
+                        <div id="home_your_layer" class="col-sm-3">Your Layers</div>
+                        <div id="home_your_styles" class="col-sm-3 col-sm-offset-1">Your Styles</div>
+                        <div id="home_dowmload" class="col-sm-3 ">Download</div>
+
+
                     </div>
                 </div>
             </div>
@@ -44,7 +61,7 @@
         <div id="bottom-row" class="row">
             <div id="examples" class="col-sm-4"><p>Example</p></div>
             <div id="tutorial" class="col-sm-4"><p>Tutorial</p></div>
-            <div id="readytobuild" class="col-sm-4"><p>I'm ready</p></div>
+            <div id="readytobuild" class="col-sm-4"><p>Go</p></div>
         </div>
     </div>
 
@@ -64,7 +81,11 @@
                 });
 
 
+
                 {% block document_ready %}  {% endblock %}
+
+
+
 
 
             });

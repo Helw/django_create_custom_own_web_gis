@@ -65,3 +65,18 @@ p{
         /*background:#ffffff;*/
 
 }
+
+#center_body {
+
+        margin-top:10px;
+
+}
+
+div[id^=home_] {
+
+
+        background: red;
+
+
+
+}
