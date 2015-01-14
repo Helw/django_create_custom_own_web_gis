@@ -10,6 +10,7 @@ function init() {
                 var map = new OpenLayers.Map('map',options);
 				{% autoescape off %}
     				{{ baselayers}}
+    				{{ wmslayers}}
 				{% endautoescape %}
 
                 map.zoomToMaxExtent();

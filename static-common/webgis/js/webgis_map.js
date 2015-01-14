@@ -142,14 +142,6 @@ function WebGisMap(map_type,new_types) {
 
 
 
-        this.LAYERS = {
-
-                baseLayers : {},
-                wmsLayers :{},
-                vectorLayers: {},
-                yourLayers: {}
-
-        };
 
         this.appControl = [];
 
@@ -480,43 +472,106 @@ function WebGisMap(map_type,new_types) {
         };
 
 
-        this.baseLayers = {
+        /* LAYERS */
+
+        this.LAYERS = {
+
+                        /* BASE LAYERS */
+
+                        baseLayers : {
 
 
-            google_phy: new OpenLayers.Layer.Google(
-                "Google Physical",
-                {type: google.maps.MapTypeId.TERRAIN,
-                    minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 16,
-                    numZoomLevels: 16}
-            ),
+                            google_phy: new OpenLayers.Layer.Google(
+                                "Google Physical",
+                                {type: google.maps.MapTypeId.TERRAIN,
+                                    minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 16,
+                                    numZoomLevels: 16}
+                            ),
 
-            google_hyb: new OpenLayers.Layer.Google(
-                "Google Hybrid",
-                {type: google.maps.MapTypeId.HYBRID,
-                    minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 20,
-                    numZoomLevels: 20}
-            ),
+                            google_hyb: new OpenLayers.Layer.Google(
+                                "Google Hybrid",
+                                {type: google.maps.MapTypeId.HYBRID,
+                                    minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 20,
+                                    numZoomLevels: 20}
+                            ),
 
-            google_sat: new OpenLayers.Layer.Google(
-                "Google Satellite",
-                {
-                    type: google.maps.MapTypeId.SATELLITE,
+                            google_sat: new OpenLayers.Layer.Google(
+                                "Google Satellite",
+                                {
+                                    type: google.maps.MapTypeId.SATELLITE,
 
-                    minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 22,
-                    numZoomLevels: 22
+                                    minZoomLevel: map_settings.minZoomLevel, maxZoomLevel: 22,
+                                    numZoomLevels: 22
 
-                }
-            ),
+                                }
+                            ),
 
-            openstreetmap: new OpenLayers.Layer.OSM(
-                    "OpenStreetMap"
+                            openstreetmap: new OpenLayers.Layer.OSM(
+                                    "OpenStreetMap"
 
-            )
-
-
-        };
+                            )
 
 
+                        },
+
+
+                         /* WMS LAYERS */
+
+                        wmsLayers : {
+
+
+
+                                        FWI :  {
+                                                                type: 'wms',
+                                                                layer_name: 'fd_ecmwf14_FWI',
+                                                                name: 'Fire Weather Index (FWI)',
+                                                                source: "http://geohub.jrc.ec.europa.eu/forest/effis/mapserv/fwi?",
+                                                                options: {buffer: 0, displayInLayerSwitcher: true, opacity: 1, visibility: true},
+                                                                wms_parameters : {day: "14-Jan-2015", forecast: '1'}
+                                        }
+                                    },
+
+                         /* VECTOR LAYERS */
+
+                        vectorLayers : {},
+
+                         /* YOUR LAYERS */
+
+                        yourLayers : {}
+
+
+         };
+
+         this.vectorLayers = {};
+         this.yourLayers = {} ;
+         this.addAllLayersToInterface = function () {
+
+            $this = this;
+            $.each($this.LAYERS, function(key,value){
+
+
+                    var divElementLayers = $('#'+key)
+                    var layer = $this.LAYERS[key];
+                    $.each($this.LAYERS[key], function(key,value) {
+
+                       divElementLayers.append($('<div/>', {
+                            id: key,
+                            text: layer[key].name
+                        }))
+
+                    });
+
+            })
+
+
+
+
+
+
+         }
+
+
+        /* END LAYERS */
 
 
         this.proj4326 = new OpenLayers.Projection("EPSG:4326");
@@ -538,7 +593,7 @@ function WebGisMap(map_type,new_types) {
         this.addBaseLayer = function (base_layer) {
 
 
-            var layer = this.baseLayers[base_layer];
+            var layer = this.LAYERS.baseLayers[base_layer];
 
             this.map.addLayer(layer);
 
@@ -572,7 +627,7 @@ function WebGisMap(map_type,new_types) {
 
         this.removeBaseLayer = function (base_layer) {
 
-            this.map.removeLayer(this.baseLayers[base_layer])
+            this.map.removeLayer(this.LAYERS.baseLayers[base_layer])
 
 
             var l = this.map.controls.length;
@@ -794,6 +849,7 @@ function WebGisMap(map_type,new_types) {
 
 
             if (arguments.length == 0) {
+
                 this.map.addLayers(this.arrayLayers);
                 this.arrayLayers = []; //reset array Layers if no layer name is given
             }
@@ -814,8 +870,8 @@ function WebGisMap(map_type,new_types) {
 
             /* PUT COUNTRY BOUNDARY LAYER ON TOP */
 
-            var country_bound = this.get_layer_index('Country_Boundaries')[0];
-            this.map.raiseLayer(country_bound, this.map.layers.length);
+            //var country_bound = this.get_layer_index('Country_Boundaries')[0];
+            //this.map.raiseLayer(country_bound, this.map.layers.length);
             if (this.marker_vector_layer) {
 
                 this.map.raiseLayer(this.marker_vector_layer , this.map.layers.length);
@@ -901,6 +957,19 @@ function WebGisMap(map_type,new_types) {
 
 
         /* Run initialization Map after instance creation*/
+
+
+        (function (object_instance){
+
+
+
+
+               object_instance.addAllLayersToInterface();
+
+
+
+
+        })(this)
 
         /*(function initializeMapApplication(object) {
 
@@ -1103,7 +1172,7 @@ function WebGisMap(map_type,new_types) {
         })(this);
 
         */
-        addBaseLayer(this);
+        //addBaseLayer(this);
 
     }
 };

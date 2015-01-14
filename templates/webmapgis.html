@@ -31,10 +31,10 @@
         <div id="mynav" class="row">
 
             <ul class="navigation">
-                  <li class="active"><a href="#basemap">BaseMap</a></li>
-                  <li><a href="#wms">WMS Service</a></li>
-                  <li><a href="#vector">Vector</a></li>
-                  <li><a href="#yourvector">Your Data</a></li>
+                  <li class="active"><a href="#baseLayers">BaseMap</a></li>
+                  <li><a href="#wmsLayers">WMS Service</a></li>
+                  <li><a href="#vectorLayers">Vector</a></li>
+                  <li><a href="#yourLayers">Your Data</a></li>
                   <li><a href="#download">Download</a></li>
             </ul>
 
@@ -68,24 +68,24 @@
 
                     <h3>Added Layers / Tools</h3></br>
 
-                    <div id="added_basemap">
+                    <div id="added_baseLayers">
 
                         Base map
 
                     </div>
 
-                    <div id="added_wms">
+                    <div id="added_wmsLayers">
 
                             WMS
 
                     </div>
 
-                    <div id="added_vector">
+                    <div id="added_vectorLayers">
 
                         Vector Layer
 
                     </div>
-                    <div id="added_your_layer">
+                    <div id="added_yourLayers">
 
                         Your Layer
 
@@ -118,6 +118,7 @@
 
 
 
+                /* NAVIGATION BEHAVIOR TO MOVE */
 
                 $('.navigation li').on('click',function () {
                     $('.navigation li').not(this).removeClass('active');

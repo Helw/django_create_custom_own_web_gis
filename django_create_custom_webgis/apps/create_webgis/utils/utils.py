@@ -2,20 +2,34 @@ __author__ = 'v-user'
 
 import zipfile
 import tempfile
-# import shutil
+
 import os
 from django.template.loader import render_to_string
 
 OUTPUT_PACKAGE_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)),'templates','ouput_package');
 
 
-def create_web_gis_zip_file(cleaned_data={'baselayers':['openstreetmap']}):
+def create_web_gis_zip_file(cleaned_data={'baselayers':[],'wmslayers':[]}):
+
+    # BASELAYERS
+
     baselayers = 'map.addLayers(['
     for bl in cleaned_data['baselayers']:
         baselayers += 'BASELAYERS["'+bl+'"]' + ','
     baselayers+=']);\n'
+
+    #WMS LAYERS
+
+    wmslayers = 'map.addLayers(['
+    for wl in cleaned_data['wmslayers']:
+        wmslayers += 'WMSLAYERS["'+wl+'"]' + ','
+    wmslayers+=']);\n'
+
+
+
     template = render_to_string('webgis_templates_files/index.html',{})
-    webgismap_js = render_to_string('webgis_templates_files/js/webgismap.js',{'baselayers': baselayers})
+    webgismap_js = render_to_string('webgis_templates_files/js/webgismap.js',{'baselayers': baselayers,
+                                                                              'wmslayers': wmslayers})
     temp_file = tempfile.NamedTemporaryFile()
     temp_name = temp_file.name
 
@@ -27,5 +41,4 @@ def create_web_gis_zip_file(cleaned_data={'baselayers':['openstreetmap']}):
             for file in files:
                 fn = os.path.join(base, file)
                 local_file_zip.write(fn, fn[rootlen:])
-    # shutil.copy(temp_name, '/home/v-user/testwebgis.zip')
     return temp_file

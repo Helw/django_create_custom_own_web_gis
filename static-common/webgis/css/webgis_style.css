@@ -59,7 +59,7 @@ html, body {
     height: 100%;
 }
 
-#basemap > div, #added_basemap > div {
+#baseLayers > div, #added_baseLayers > div {
 
     cursor: pointer;
 

@@ -30,7 +30,7 @@ class CreateOutputWebGis(View):
 
         else:
             response_data = {}
-            response_data['url'] = 'failed'
+            response_data['url'] = request.POST
             return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
