@@ -110,7 +110,11 @@ function WebGisMap(map_type,new_types) {
         **********************************************/
 
 
+
+
         var type = {
+
+
 
             iframe : {minZoomLevel:3,
                       Bounds:new OpenLayers.Bounds(-3997819.4816408, 3978863.2533342, 7429821.9935154, 11561416.458168)
@@ -135,6 +139,17 @@ function WebGisMap(map_type,new_types) {
         var layer_id_list = [];
 
         /* --------PUBLIC ATTRIBUTES ------------------ */
+
+
+
+        this.LAYERS = {
+
+                baseLayers : {},
+                wmsLayers :{},
+                vectorLayers: {},
+                yourLayers: {}
+
+        };
 
         this.appControl = [];
 
