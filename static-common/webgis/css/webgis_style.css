@@ -73,9 +73,17 @@ html, body {
 
         border-style: solid;
         border-color: #000000;
+        height: 100%;
 
 
 }
 
+#accordion-col {
 
+    padding-left:1px;
+    padding-right:1px;
+    padding-top:5px;
+    padding-bottom:5px;
+
+}
 

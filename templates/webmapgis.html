@@ -11,8 +11,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
     {% render_block "css" %}
-    {% include "./_include/webgis/header.html" %}
+
+        {% include "./_include/webgis/header.html" %}
 
     {% block custom_header %}
 
@@ -28,43 +30,106 @@
 
     {% endblock %}
      <div class="container-fluid fill">
-        <div id="mynav" class="row">
+        <div class="row" style="height:100%">
+            <div id="accordion-col" class="col-md-2 col-xs-12 text-center">
 
-            <ul class="navigation">
-                  <li class="active"><a href="#baseLayers">BaseMap</a></li>
-                  <li><a href="#wmsLayers">WMS Service</a></li>
-                  <li><a href="#vectorLayers">Vector</a></li>
-                  <li><a href="#yourLayers">Your Data</a></li>
-                  <li><a href="#download">Download</a></li>
-            </ul>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#body_baseLayers">Base Map Layers</a>
+                            </h4>
+                        </div>
+                        <div id="body_baseLayers" class="panel-collapse collapse in">
+                             <div id="baseLayers" class="panel-body">
 
-        </div>
+                                 <ul class="bxsliderbaseLayers">
+                                      <li><img src="/static/common/images/osm.png" title="Google Satellite"/></li>
+                                      <li><img src="/static/common/images/osm.png" title="Google Hybrid"/></li>
+                                      <li><img src="/static/common/images/osm.png" title="Openstreetmap"/></li>
+                                 </ul>
 
-        <div id="content-row" class="row">
-            <div id="div_current_layer_choose" class="col-sm-2">
+                             </div>
 
-                <div id="left_column">
+                        </div>
+                    </div>
 
-                    {% include "./_include/webgis/navbar_content.html" %}
 
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#body_wmsLayers">WMS Services</a>
+                            </h4>
+                        </div>
+                        <div id="body_wmsLayers" class="panel-collapse collapse">
+                             <div id="wmsLayers" class="panel-body">
+
+
+                                 <ul class="bxsliderwmsLayers">
+                                      <li><img src="/static/common/images/osm.png" title="Google Satellite"/></li>
+                                      <li><img src="/static/common/images/osm.png" title="Google Hybrid" /></li>
+                                      <li><img src="/static/common/images/osm.png" title="Openstreetmap"/></li>
+                                 </ul>
+
+                             </div>
+                        </div>
+
+                    </div>
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#body_vectorLayers">Vector Layers</a>
+                            </h4>
+                        </div>
+                        <div id="body_vectorLayers" class="panel-collapse collapse">
+                             <div id="vectorLayers" class="panel-body"></div>
+                        </div>
+
+                    </div>
+
+                     <div class="panel panel-primary">
+
+                         <div class="panel-heading">
+                            <h4 class="panel-title">
+                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#body_yourLayers">Your Data</a>
+                            </h4>
+                        </div>
+                        <div id="body_yourLayers" class="panel-collapse collapse">
+                             <div id="yourLayers" class="panel-body">
+
+
+
+                             </div>
+                        </div>
+
+                    </div>
+
+                     <div class="panel panel-primary">
+
+                         <div class="panel-heading">
+                            <h4 class="panel-title">
+                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#body_download">Download</a>
+                            </h4>
+                        </div>
+                        <div id="body_download" class="panel-collapse collapse">
+                            <div id="download" class="panel-body">
+                                <button>Download</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
+
+            <div id="custom_map" class="col-md-8 col-xs-12">
 
             </div>
-            <div id="custom_map" class="col-sm-8">
 
 
-
-
-                    {% block customize_map %}
-
-
-
-                    {% endblock %}
-
-            </div>
-            <div id="div_ichooseit" class="col-sm-2">
-                <div id="right_column">
+            <div class="col-md-2 col-xs-2">
+                <div >
 
                     <h3>Added Layers / Tools</h3></br>
 
@@ -103,7 +168,9 @@
 
 
         </div>
-    </div>
+
+     </div>
+
 
 
 
@@ -115,6 +182,20 @@
     <script>
 
             $(document).ready(function () {
+
+
+                /* slider base Layers */
+
+                $('.bxsliderbaseLayers,.bxsliderwmsLayers').bxSlider({
+                      caption:true,
+                      minSlides: 2,
+                      maxSlides: 2,
+                      slideWidth: 360,
+                      slideMargin: 10
+
+                });
+
+
 
 
 

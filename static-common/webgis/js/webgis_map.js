@@ -527,7 +527,7 @@ function WebGisMap(map_type,new_types) {
                                                                 name: 'Fire Weather Index (FWI)',
                                                                 source: "http://geohub.jrc.ec.europa.eu/forest/effis/mapserv/fwi?",
                                                                 options: {buffer: 0, displayInLayerSwitcher: true, opacity: 1, visibility: true},
-                                                                wms_parameters : {day: "14-Jan-2015", forecast: '1'}
+                                                                wms_parameters : {day: "19-Jan-2015", forecast: '1'}
                                         }
                                     },
 

@@ -7,15 +7,28 @@ function init() {
 						units: 'm',
 						numZoomLevels: 30
 					};
-                var map = new OpenLayers.Map('map',options);
+
+
+                map = new OpenLayers.Map('map',options);
+
 				{% autoescape off %}
     				{{ baselayers}}
     				{{ wmslayers}}
 				{% endautoescape %}
 
+
+//              var baseMapLayers = [BASELAYERS["google_hyb"],BASELAYERS["openstreetmap"]];
+//		        var wmsMapLayers =  [WMSLAYERS["FWI"]];
+//		        map.addLayers(baseMapLayers);
+//		        map.addLayers(wmsMapLayers);
+
+
+                var wms_info_control = new OpenLayers.Control.WmsInfoControl();
+                wms_info_control.wmsLayersInfo = [WMSLAYERS["FWI"]];
+                map.addControls([new OpenLayers.Control.LayerSwitcher(), wms_info_control]);
+                wms_info_control.activate();
                 map.zoomToMaxExtent();
 
-                map.addControl( new OpenLayers.Control.LayerSwitcher() );
 }
 
 
