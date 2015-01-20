@@ -87,3 +87,43 @@ html, body {
 
 }
 
+
+/*BOOTSTRAP CUSTOMIZATION */
+
+.carousel-indicators li {
+    background-color: #669966 !important;
+}
+.carousel-indicators .active {
+    background-color: #FF7600 !important;
+}
+.carousel-control.left,.carousel-control.right  {
+
+    background-image:none !important;
+
+}
+
+.carousel-caption h3 {
+
+    font-size:20px !important;
+    font-weight: bold !important;
+    color:#FF7600 !important;
+
+}
+
+
+.carousel-caption {
+
+    padding-top:0 !important;
+    bottom:0 !important;
+    top:0 !important;
+
+}
+.carousel {
+    border: 1px solid black;
+}
+
+.glyphicon-chevron-right,.glyphicon-chevron-left {
+
+    color:#FF7600 !important;
+
+}

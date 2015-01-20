@@ -377,6 +377,7 @@
 				height +=	parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom'));
 			}
 
+
 			return height;
 		}
 
@@ -1287,7 +1288,8 @@
 			// resize all children in ratio to new screen size
 			slider.children.add(el.find('.bx-clone')).width(getSlideWidth());
 			// adjust the height
-			slider.viewport.css('height', getViewportHeight());
+			//slider.viewport.css('height', getViewportHeight());
+			slider.viewport.css('height', '');
 			// update the slide position
 			if(!slider.settings.ticker) setSlidePosition();
 			// if active.last was true before the screen resize, we want

@@ -10,14 +10,14 @@ function add_wmslayer_to_wms_div(elem) {
 }
 
 
-$('#wmsLayers > div').on('click',function () {
+$('#wmsLayers > div:not(".carousel")').on('click',function () {
 
                         add_wmslayer_to_wms_div(this);
 
 });
 
 
-$('#wmsLayers').delegate('div','click', function (){
+$('#wmsLayers').delegate('div:not(".carousel")','click', function (){
 
                 add_wmslayer_to_wms_div(this);
 

@@ -11,14 +11,14 @@ function add_baselayer_to_basemap_div(elem) {
 }
 
 
-$('#baseLayers > div').on('click',function () {
-
+$('#baseLayers > div:not(".carousel")').on('click',function () {
+                        alert('pigiato')
                         add_baselayer_to_basemap_div(this);
 
 });
 
 
-$('#baseLayers').delegate('div','click', function (){
+$('#baseLayers').delegate('div:not(".carousel")','click', function (){
 
                 add_baselayer_to_basemap_div(this);
 

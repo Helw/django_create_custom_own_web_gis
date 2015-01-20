@@ -43,11 +43,8 @@
                         <div id="body_baseLayers" class="panel-collapse collapse in">
                              <div id="baseLayers" class="panel-body">
 
-                                 <ul class="bxsliderbaseLayers">
-                                      <li><img src="/static/common/images/osm.png" title="Google Satellite"/></li>
-                                      <li><img src="/static/common/images/osm.png" title="Google Hybrid"/></li>
-                                      <li><img src="/static/common/images/osm.png" title="Openstreetmap"/></li>
-                                 </ul>
+
+                                    {% include "./_include/webgis/baseLayersSlider.html" %}
 
                              </div>
 
@@ -65,12 +62,7 @@
                         <div id="body_wmsLayers" class="panel-collapse collapse">
                              <div id="wmsLayers" class="panel-body">
 
-
-                                 <ul class="bxsliderwmsLayers">
-                                      <li><img src="/static/common/images/osm.png" title="Google Satellite"/></li>
-                                      <li><img src="/static/common/images/osm.png" title="Google Hybrid" /></li>
-                                      <li><img src="/static/common/images/osm.png" title="Openstreetmap"/></li>
-                                 </ul>
+                                     {% include "./_include/webgis/wmsLayersSlider.html" %}
 
                              </div>
                         </div>
@@ -128,7 +120,7 @@
             </div>
 
 
-            <div class="col-md-2 col-xs-2">
+            <div class="col-md-2 col-xs-12">
                 <div >
 
                     <h3>Added Layers / Tools</h3></br>
@@ -184,16 +176,14 @@
             $(document).ready(function () {
 
 
-                /* slider base Layers */
 
-                $('.bxsliderbaseLayers,.bxsliderwmsLayers').bxSlider({
-                      caption:true,
-                      minSlides: 2,
-                      maxSlides: 2,
-                      slideWidth: 360,
-                      slideMargin: 10
 
-                });
+                $('#carousel-baseLayers, #carousel-wmsLayers ').carousel({
+                        interval: false
+
+                })
+
+
 
 
 
