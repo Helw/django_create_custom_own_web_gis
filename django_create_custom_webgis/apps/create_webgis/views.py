@@ -1,14 +1,38 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import FormView, View
+from django.views.generic import FormView, View, TemplateView
 from .forms import BaseLayerForm
-from django.shortcuts import  redirect
 from .utils.utils import create_web_gis_zip_file
 from django.core.servers.basehttp import FileWrapper
 from django.http import HttpResponse
+from .forms import UserLayerDataForm
 
 import json
+
+class BuildYourWebGisMainPage(TemplateView):
+
+    template_name = 'webmapgis.html'
+
+
+
+class TestEchoPostForm(View):
+
+
+
+    def post(self, request, *args, **kwargs):
+
+        if request.is_ajax():
+            form = UserLayerDataForm(request.POST,request.FILES)
+            #return HttpResponse(str(request.FILES['userlayer']))
+            if form.is_valid():
+                uploaded_file = form.cleaned_data.get('userlayer')
+
+                return HttpResponse(str(uploaded_file.read()))
+            else:
+                return HttpResponse(str(form.errors))
+
+
 
 class CreateOutputWebGis(View):
 

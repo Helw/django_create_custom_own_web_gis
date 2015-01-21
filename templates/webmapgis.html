@@ -91,7 +91,18 @@
                         <div id="body_yourLayers" class="panel-collapse collapse">
                              <div id="yourLayers" class="panel-body">
 
+                                valid format : kml, shapefiles, xy (text format)
 
+                                <form id="form_upload_user_layer" action="post_form_echo/" method="post" enctype="multipart/form-data">
+
+                                    {% csrf_token %}
+                                    <!--<input type="file"> class="filestyle" data-buttonName="btn-primary">-->
+                                    <input type="file" name="userlayer">
+                                    <button id="upload_client_layer" type="submit" class="btn btn-default">Upload</button>
+
+                                </form>
+
+                                 <div id="post_file_upload"></div>
 
                              </div>
                         </div>
@@ -107,7 +118,7 @@
                         </div>
                         <div id="body_download" class="panel-collapse collapse">
                             <div id="download" class="panel-body">
-                                <button>Download</button>
+                                <button class="btn btn-default">Download</button>
                             </div>
                         </div>
                     </div>
@@ -181,8 +192,33 @@
                 $('#carousel-baseLayers, #carousel-wmsLayers ').carousel({
                         interval: false
 
-                })
+                });
 
+
+
+                var options = {
+                                beforeSend: function()
+                                {
+
+                                },
+                                uploadProgress: function(event, position, total, percentComplete)
+                                {
+
+                                },
+                                success: function()
+                                {
+
+                                },
+                                complete: function(response)
+                                {
+
+                                     $('#post_file_upload').html(response.responseText)
+                                }
+
+                };
+
+
+                $('#form_upload_user_layer').ajaxForm(options);
 
 
 

@@ -64,3 +64,4 @@ target/
 
 .static
 static
+django_create_custom_webgis/test

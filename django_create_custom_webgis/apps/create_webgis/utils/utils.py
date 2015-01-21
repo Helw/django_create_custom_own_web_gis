@@ -9,6 +9,12 @@ from django.template.loader import render_to_string
 OUTPUT_PACKAGE_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)),'templates','ouput_package');
 
 
+def validation_user_layer_uploaded(layer):
+
+    return True
+
+
+
 def create_web_gis_zip_file(cleaned_data={'baselayers':[],'wmslayers':[]}):
 
     # BASELAYERS

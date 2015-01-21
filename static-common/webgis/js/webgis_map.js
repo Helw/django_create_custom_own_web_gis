@@ -138,6 +138,18 @@ function WebGisMap(map_type,new_types) {
 
         var layer_id_list = [];
 
+        /* fwi JRC forest fwi format date layer */
+
+        var m_names = new Array("Jan", "Feb", "Mar",
+        "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+        "Oct", "Nov", "Dec");
+
+        var today = new Date();
+        var fwi_today_date_format =  today.getDate() + '-' + m_names[today.getMonth()] + '-' + today.getFullYear();
+
+
+        /* --------------------------------*/
+
         /* --------PUBLIC ATTRIBUTES ------------------ */
 
 
@@ -527,7 +539,7 @@ function WebGisMap(map_type,new_types) {
                                                                 name: 'Fire Weather Index (FWI)',
                                                                 source: "http://geohub.jrc.ec.europa.eu/forest/effis/mapserv/fwi?",
                                                                 options: {buffer: 0, displayInLayerSwitcher: true, opacity: 1, visibility: true},
-                                                                wms_parameters : {day: "19-Jan-2015", forecast: '1'}
+                                                                wms_parameters : {day: fwi_today_date_format , forecast: '1'}
                                         }
                                     },
 

@@ -21,7 +21,7 @@ function createCustomWebGis(csrfmiddlewaretoken) {
     })
 
 
-     $.download("/create/", ['baselayers','wmslayers','csrfmiddlewaretoken'],
+     $.download("create/", ['baselayers','wmslayers','csrfmiddlewaretoken'],
                             [baselayers.join(';'), wmslayers.join(';'),csrfmiddlewaretoken]
      )
 
