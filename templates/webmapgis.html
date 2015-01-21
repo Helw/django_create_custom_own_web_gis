@@ -31,7 +31,7 @@
     {% endblock %}
      <div class="container-fluid fill">
         <div class="row" style="height:100%">
-            <div id="accordion-col" class="col-md-2 col-xs-12 text-center">
+            <div id="accordion-col" class="col-md-3 col-xs-12 text-center">
 
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-primary">
@@ -97,7 +97,7 @@
 
                                     {% csrf_token %}
                                     <!--<input type="file"> class="filestyle" data-buttonName="btn-primary">-->
-                                    <input type="file" name="userlayer">
+                                    <input type="file" class="filestyle" data-buttonBefore="true" data-buttonName="btn-primary" name="userlayer">
                                     <button id="upload_client_layer" type="submit" class="btn btn-default">Upload</button>
 
                                 </form>
@@ -126,7 +126,7 @@
             </div>
 
 
-            <div id="custom_map" class="col-md-8 col-xs-12">
+            <div id="custom_map" class="col-md-7 col-xs-12">
 
             </div>
 
