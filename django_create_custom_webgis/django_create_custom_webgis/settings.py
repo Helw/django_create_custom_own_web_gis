@@ -52,7 +52,7 @@ INSTALLED_APPS = (
     'sekizai',
     'apps.create_webgis',
     'apps.jsonp',
-
+    'apps.first_celery_task',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,3 +104,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static')
 
 STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR),'static-common')]
+
+
+#celery settings
+
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
