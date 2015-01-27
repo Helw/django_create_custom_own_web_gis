@@ -7,9 +7,10 @@ from .utils.utils import create_web_gis_zip_file
 from django.core.servers.basehttp import FileWrapper
 from django.http import HttpResponse
 from .forms import UserLayerDataForm
-
+import tempfile
+from django_create_custom_webgis import settings
 import json
-
+import os
 class BuildYourWebGisMainPage(TemplateView):
 
     template_name = 'webmapgis.html'
@@ -28,7 +29,16 @@ class TestEchoPostForm(View):
             if form.is_valid():
                 uploaded_file = form.cleaned_data.get('userlayer')
 
-                return HttpResponse(str(uploaded_file.read()))
+                #return HttpResponse(str(uploaded_file.read()))
+                temp = tempfile.NamedTemporaryFile(dir=settings.MEDIA_ROOT)
+                t_name = temp.name
+                temp.seek(0)
+                temp.write(uploaded_file.read())
+                response_data = {}
+                response_data['name'] = str(t_name)
+                response_data['url'] = str(os.path.join(settings.MEDIA_URLS,t_name))
+                return HttpResponse('/media/'+str(t_name.split('/')[-1]))
+                #return HttpResponse(json.dumps(response_data), content_type="application/json")
             else:
                 return HttpResponse(str(form.errors))
 

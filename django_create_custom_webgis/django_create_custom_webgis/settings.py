@@ -99,6 +99,9 @@ USE_TZ = True
 
 ######3 STATIC FILES MANAGEMENT ###########
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
+
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static')
